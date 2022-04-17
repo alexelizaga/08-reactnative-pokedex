@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, FlatList, ActivityIndicator, Text } from 'react-native';
+import { Image, FlatList, ActivityIndicator, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePokemonPaginated } from '../hooks/usePokemonPaginated';
 
@@ -18,40 +18,46 @@ export const HomeScreen = () => {
         style={ styles.pokebolaBG }
       />
 
-      <FlatList
-        data={ simplePokemonList }
-        keyExtractor={ (pokemon) => pokemon.id }
-        showsVerticalScrollIndicator={ false }
-        numColumns={ 2 }
+      <View
+        style={{ alignItems: 'center' }}
+      >
+        <FlatList
+          data={ simplePokemonList }
+          keyExtractor={ (pokemon) => pokemon.id }
+          showsVerticalScrollIndicator={ false }
+          numColumns={ 2 }
 
-        // HeaderComponent
-        ListHeaderComponent={(
-          <Text
-            style={[
-              styles.globalMargin,
-              styles.title,
-              { 
-                top: top + 20,
-                marginBottom: top + 20
-              }
-            ]}
-          >Pokedex</Text>
-        )}
+          // HeaderComponent
+          ListHeaderComponent={(
+            <Text
+              style={[
+                styles.globalMargin,
+                styles.title,
+                { 
+                  top: top + 20,
+                  marginBottom: top + 20,
+                  paddingBottom: 10
+                }
+              ]}
+            >Pokedex</Text>
+          )}
 
-        renderItem={ ({item}) => <PokemonCard pokemon={item} /> }
+          renderItem={ ({item}) => <PokemonCard pokemon={item} /> }
 
-        // infinite scroll
-        onEndReached={loadPokemons}
-        onEndReachedThreshold={0.4}
+          // infinite scroll
+          onEndReached={loadPokemons}
+          onEndReachedThreshold={0.4}
 
-        ListFooterComponent={(
-          <ActivityIndicator
-            style={{ height: 100 }}
-            size={ 20 }
-            color={ 'grey' }
-          /> 
-        )}
-      />
+          ListFooterComponent={(
+            <ActivityIndicator
+              style={{ height: 100 }}
+              size={ 20 }
+              color={ 'grey' }
+            /> 
+          )}
+        />
+      </View>
+      
 
       
     </>
