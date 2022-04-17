@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, Button, Image } from 'react-native';
+import { Text, Image } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { usePokemonPaginated } from '../hooks/usePokemonPaginated';
 
 import { styles } from '../theme/appTheme';
 
-export const HomeScreen = ({ navigation: { navigate } }) => {
+export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
+  usePokemonPaginated();
+
   return (
     <>
       <Image
@@ -19,10 +22,6 @@ export const HomeScreen = ({ navigation: { navigate } }) => {
           { top: top + 20 }
         ]}
       >Pokedex</Text>
-      <Button
-        title='PokemonScreen'
-        onPress={() => navigate('PokemonScreen')}
-      />
     </>
   )
 }
