@@ -23,11 +23,13 @@ export const FadeInImage = ({ uri, style = {} } : Props) => {
     }
 
     return (
-        <View style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            ...style as any,
-        }}>
+        <View style={[
+            style,
+            {
+                justifyContent: 'center',
+                alignItems: 'center',
+            }
+        ]}>
             
             {
                 isLoading && 
@@ -42,10 +44,12 @@ export const FadeInImage = ({ uri, style = {} } : Props) => {
                 source={{ uri }}
                 onError={ onError } 
                 onLoad={ finishLoading }
-                style={{
-                    ...style as any,
-                    opacity
-                }}
+                style={[
+                    style,
+                    {
+                        opacity
+                    }
+                ]}
             />
 
         </View>

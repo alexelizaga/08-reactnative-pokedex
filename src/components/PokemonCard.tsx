@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image } from 'rea
 
 import { SimplePokemon } from '../interfaces/pokemonInterfaces';
 import { FadeInImage } from './FadeInImage';
+import { useState, useEffect } from 'react';
 
 const { width:screenWidth } = Dimensions.get('screen');
 
@@ -10,11 +11,22 @@ interface Props {
   pokemon: SimplePokemon;
 };
 export const PokemonCard = ( {pokemon}: Props ) => {
+  const [ bgColor, setBgColor ] = useState('grey');
+
+  useEffect(() => {
+  }, []);
+  
   return (
     <TouchableOpacity
       activeOpacity={ 0.9 }
     >
-      <View style={ [PokemonCardStyles.cardContainer, { width: screenWidth * 0.4}] }>
+      <View style={[
+        PokemonCardStyles.cardContainer,
+        {
+          width: screenWidth * 0.4,
+          backgroundColor: bgColor
+        }
+      ]}>
         <View>
           <Text style={ PokemonCardStyles.name }>
             { pokemon.name }
@@ -42,7 +54,6 @@ export const PokemonCard = ( {pokemon}: Props ) => {
 const PokemonCardStyles = StyleSheet.create({
     cardContainer: {
       marginHorizontal: 10,
-      backgroundColor: 'red',
       height: 120,
       marginBottom: 25,
       borderRadius: 10,
