@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
+import ImageColors from 'react-native-image-colors';
 
 import { SimplePokemon } from '../interfaces/pokemonInterfaces';
 import { FadeInImage } from './FadeInImage';
@@ -12,8 +13,19 @@ interface Props {
 };
 export const PokemonCard = ( {pokemon}: Props ) => {
   const [ bgColor, setBgColor ] = useState('grey');
+  const isMounted = useRef(true);
 
   useEffect(() => {
+    ImageColors.getColors(pokemon.picture, { fallback: 'grey' })
+      .then( colors => {
+        if ( !isMounted.current ) return;
+        (colors.platform === 'ios')
+          ? setBgColor( colors.background || 'grey' )
+          : setBgColor( colors.dominant || 'grey' );
+      });
+    return () => {
+      isMounted.current = false;
+    }
   }, []);
   
   return (
