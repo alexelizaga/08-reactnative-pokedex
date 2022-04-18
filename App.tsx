@@ -1,15 +1,18 @@
 import 'react-native-gesture-handler';
 import 'expo-dev-client';
 import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
 
-import { Navigation } from './src/router/Navigation';
+import { Tabs } from './src/router/Tabs';
+
 
 const App = () => {
   return (
-    <>
-      <Navigation />
+    <NavigationContainer>
+      {/* <Navigation /> */}
+      <Tabs />
       <StatusBar style="auto" />
-    </>
+    </NavigationContainer>
   );
 }
 
