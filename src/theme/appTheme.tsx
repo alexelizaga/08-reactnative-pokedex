@@ -4,7 +4,7 @@ export const globalStyles = StyleSheet.create({
     globalMargin: {
       marginHorizontal: 20
     },
-    pokebolaBG: {
+    globalPokebolaBG: {
       position: 'absolute',
       height: 300,
       width: 300,
@@ -12,7 +12,7 @@ export const globalStyles = StyleSheet.create({
       right: -100,
       opacity: 0.2
     },
-    title: {
+    globalTitle: {
       fontSize: 35,
       fontWeight: 'bold'
     }

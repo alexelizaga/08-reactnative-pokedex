@@ -14,7 +14,7 @@ export const HomeScreen = () => {
     <View style={{ flex: 1, overflow: 'hidden' }}>
       <Image
         source={require('../assets/pokebola.png')}
-        style={ styles.pokebolaBG }
+        style={ styles.globalPokebolaBG }
       />
 
       <View
@@ -31,7 +31,7 @@ export const HomeScreen = () => {
             <Text
               style={[
                 styles.globalMargin,
-                styles.title,
+                styles.globalTitle,
                 { 
                   top: top + 20,
                   marginBottom: top + 20,

@@ -11,11 +11,11 @@ export const usePokemon = ( id: string ) => {
   const loadPokemon = async() => {
     const resp = await pokemonApi.get<PokemonFull>(`https://pokeapi.co/api/v2/pokemon/${id}`);
     setPokemon( resp.data );
-    setIsLoading( false );
+    setIsLoading(false);
   };
 
   useEffect(() => {
-    loadPokemon;
+    loadPokemon();
   }, []);
   
 
