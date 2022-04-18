@@ -14,7 +14,7 @@ export const HomeScreen = () => {
     <View style={{ flex: 1, overflow: 'hidden' }}>
       <Image
         source={require('../assets/pokebola.png')}
-        style={ styles.globalPokebolaBG }
+        style={ globalStyles.globalPokebolaBG }
       />
 
       <View
@@ -30,8 +30,8 @@ export const HomeScreen = () => {
           ListHeaderComponent={(
             <Text
               style={[
-                styles.globalMargin,
-                styles.globalTitle,
+                globalStyles.globalMargin,
+                globalStyles.globalTitle,
                 { 
                   top: top + 20,
                   marginBottom: top + 20,
@@ -62,7 +62,3 @@ export const HomeScreen = () => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-    ...globalStyles
-});

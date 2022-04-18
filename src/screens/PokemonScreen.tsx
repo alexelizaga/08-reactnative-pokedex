@@ -5,7 +5,6 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { RootStackParams } from '../router/Navigation';
-import { globalStyles } from '../theme/appTheme';
 import { FadeInImage } from '../components/FadeInImage';
 import { usePokemon } from '../hooks/usePokemon';
 import { PokemonDetails } from '../components/PokemonDetails';
@@ -41,7 +40,7 @@ export const PokemonScreen = ( { navigation, route }: Props ) => {
         <Text
           style={[
             styles.pokemonName,
-            {top: top + 40}
+            { top: top + 40 }
           ]}
         >
           { name + '\n' } #{ id }
@@ -80,7 +79,6 @@ export const PokemonScreen = ( { navigation, route }: Props ) => {
 }
 
 const styles = StyleSheet.create({
-  ...globalStyles,
   headerContainer: {
     height: 370,
     zIndex: 999,
@@ -96,6 +94,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 40,
     alignSelf: 'flex-start',
+    position: 'relative',
     left: 20
   },
   pokeball: {
