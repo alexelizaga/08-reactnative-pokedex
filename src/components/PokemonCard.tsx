@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Image, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ImageColors from 'react-native-image-colors';
 
@@ -40,29 +40,29 @@ export const PokemonCard = ( {pokemon}: Props ) => {
       }
     >
       <View style={[
-        PokemonCardStyles.cardContainer,
+        styles.cardContainer,
         {
-          width: screenWidth * 0.4,
+          width: (Platform.OS !== 'web') ? screenWidth * 0.4 : 300,
           backgroundColor: bgColor
         }
       ]}>
         <View>
-          <Text style={ PokemonCardStyles.name }>
+          <Text style={ styles.name }>
             { pokemon.name }
             { '\n#' + pokemon.id }
           </Text>
         </View>
 
-        <View style={ PokemonCardStyles.pokebolaContainer }>
+        <View style={ styles.pokebolaContainer }>
           <Image
             source={ require('../assets/pokebola-blanca.png')}
-            style={ PokemonCardStyles.pokebola }
+            style={ styles.pokebola }
           />
         </View>
         
         <FadeInImage
           uri={ pokemon.picture }
-          style={ PokemonCardStyles.pokemonImage }
+          style={ styles.pokemonImage }
         />
       </View>
       
@@ -70,7 +70,7 @@ export const PokemonCard = ( {pokemon}: Props ) => {
   )
 }
 
-const PokemonCardStyles = StyleSheet.create({
+const styles = StyleSheet.create({
     cardContainer: {
       marginHorizontal: 10,
       height: 120,
@@ -90,6 +90,7 @@ const PokemonCardStyles = StyleSheet.create({
       color: 'white',
       fontSize: 20,
       fontWeight: 'bold',
+      position: 'absolute',
       top: 20,
       left: 10
     },

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Image, FlatList, ActivityIndicator, Text, View } from 'react-native';
+import { Image, FlatList, ActivityIndicator, Text, View, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePokemonPaginated } from '../hooks/usePokemonPaginated';
 
-import { styles } from '../theme/appTheme';
+import { globalStyles } from '../theme/appTheme';
 import { PokemonCard } from '../components/PokemonCard';
 
 export const HomeScreen = () => {
@@ -11,7 +11,7 @@ export const HomeScreen = () => {
   const { isLoading, simplePokemonList, loadPokemons } = usePokemonPaginated();
 
   return (
-    <>
+    <View style={{ flex: 1, overflow: 'hidden' }}>
       <Image
         source={require('../assets/pokebola.png')}
         style={ styles.pokebolaBG }
@@ -59,6 +59,10 @@ export const HomeScreen = () => {
       
 
       
-    </>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+    ...globalStyles
+});
