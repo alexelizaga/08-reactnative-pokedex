@@ -53,7 +53,6 @@ export const SearchScreen = () => {
     <View style={{
       flex: 1,
       marginHorizontal: 20,
-      alignItems: 'center'
     }}>
       <SearchInput
         onDebounce={ (value) => setTerm(value) }

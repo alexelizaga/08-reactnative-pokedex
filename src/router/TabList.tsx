@@ -10,10 +10,10 @@ export type RootStackParams = {
   PokemonScreen: { simplePokemon: SimplePokemon, color?: string }
 }
 
-const Stack = createStackNavigator<RootStackParams>();
-export const Navigation = () => {
+const TabList = createStackNavigator<RootStackParams>();
+export const TabListScreen = () => {
   return (
-    <Stack.Navigator
+    <TabList.Navigator
       screenOptions={{
         headerShown: false,
         cardStyle: {
@@ -21,8 +21,8 @@ export const Navigation = () => {
         }
       }}
     >
-      <Stack.Screen name="HomeScreen" component={HomeScreen} />
-      <Stack.Screen name="PokemonScreen" component={PokemonScreen} />
-    </Stack.Navigator>
+      <TabList.Screen name="HomeScreen" component={HomeScreen} />
+      <TabList.Screen name="PokemonScreen" component={PokemonScreen} />
+    </TabList.Navigator>
   )
 }
